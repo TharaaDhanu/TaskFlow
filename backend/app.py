@@ -1,7 +1,7 @@
 import os
 import datetime
 from functools import wraps
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -153,6 +153,13 @@ def admin_required(f):
             return make_response(error={"code": "FORBIDDEN", "message": "Admin privileges required for this action"}, status_code=403)
         return f(current_user, *args, **kwargs)
     return decorated
+
+@app.route("/")
+def home():
+    return send_from_directory(
+    os.path.join(os.path.dirname(__file__), "..", "frontend"),
+    "index.html"
+)
 
 @app.route('/api/auth/register', methods=['POST'])
 def register():
