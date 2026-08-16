@@ -1,6 +1,6 @@
 # TaskFlow — Full-Stack Task Management Application
 
-TaskFlow is a real-world full-stack task management application built with a React-based frontend and a Python Flask REST API backend.
+TaskFlow is a full-stack task management application built with an HTML, CSS, and JavaScript frontend and a Python Flask REST API backend.
 
 It provides user authentication, project management, task management, role-based access control, dashboard statistics, and database persistence.
 
